@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// Globals
+import React from 'react'; // component building
+import ReactDom from 'react-dom'; // rendering
+import './App.css' // Styling
+import './Hero'
+// Compontent
+const Root = document.getElementById('root');
+const fullname = 'Isaiah Monroe Davis';
+const title = 'Web Designer';
+const profileImage = '#';
+// Component
+// React componenets are detected by sentence casing
+// Always return html 
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+function Greeting(props) {
+  console.log(props);
+  return (
+    <div id="wrapper" className='wrapper'>
+      <h1 className='title' style={{ color: 'red' }}>My name is {fullname}</h1>
+      <h3>
+        {title}
+      </h3>
+      <img src={profileImage} alt={fullname}/>
+    </div>
+  );
+}
+
+// Rendering
+// components being rendered must have a closing tag
+ReactDom.render(<Greeting job='developer' />, Root);
