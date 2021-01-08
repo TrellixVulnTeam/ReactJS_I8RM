@@ -1,0 +1,38 @@
+:root {
+  --warning: #ff0000;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  counter-reset: slides;
+}
+
+html,
+body,
+div#root,
+section,
+article {
+  height: 100%;
+  width: 100%;
+}
+
+article {
+  &::before {
+    counter-increment: slides;
+    content: counter(slides);
+  }
+  &:nth-child(odd) {
+    background: red;
+  }
+}
+
+section {
+  display: flex;
+  width: 700%;
+}
